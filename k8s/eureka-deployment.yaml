@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: eureka
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: eureka
+  template:
+    metadata:
+      labels:
+        component: eureka
+    spec:
+      containers:
+      - env:
+        - name: SPRING_CLOUD_CONFIG_URI
+          value: http://config-server-cluster-ip-service:8888
+        - name: SPRING_EUREKA
+          value: http://eureka-cluster-ip-service:8761/eureka
+        image: dhananjay12/eureka-server:latest
+        name: eureka
+        resources:
+          requests:
+            memory: "256Mi"
+          limits:
+            memory: "512Mi"
+        ports:
+        - containerPort: 8761

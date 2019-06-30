@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<artifactId>zuul-server</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>zuul-server</name>
+	<packaging>jar</packaging>
+	<description>Demo project for Spring Cloud cloud zuul-server</description>
+	
+	<parent>
+		<groupId>com.mynotes.k8s</groupId>
+		<artifactId>spring-microservice</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath /> 
+	</parent>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-kubernetes</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-kubernetes-config</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.retry</groupId>
+			<artifactId>spring-retry</artifactId>
+		</dependency>
+		<!--
+			We need that(actuator) so that it can be used in readiness probes.
+			Readiness checks are needed by arquillian, so that it
+			knows when to run the actual test.
+		-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<activation>
+				<property>
+					<name>docker</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>io.fabric8</groupId>
+						<artifactId>docker-maven-plugin</artifactId>
+						<version>${io.fabric8.docker.version}</version>
+						<extensions>true</extensions>
+						<configuration>
+							<verbose>true</verbose>
+							<authConfig>
+							<push>
+								<username>${DOCKER_USERNAME}</username>
+								<password>${DOCKER_PASSWORD}</password>
+							</push>
+							</authConfig>
+							<images>
+								<image>
+									<alias>${project.artifactId}</alias>
+									<name>dhananjay12/${project.artifactId}</name>
+									<build>
+										<tags>
+											<tag>${git.commit.id}</tag>
+										</tags>
+										<from>java:8-jre-alpine</from>
+										<!--<tags> <tag>${project.version}</tag> </tags> -->
+										<entryPoint>
+											<exec>
+												<args>java</args>
+												<!--<args>-Djava.security.egd=file:/dev/./urandom</args> -->
+												<args>-jar</args>
+												<args>/maven/${project.artifactId}-${project.version}.jar</args>
+											</exec>
+										</entryPoint>
+										<assembly>
+											<descriptorRef>artifact</descriptorRef>
+										</assembly>
+									</build>
+								</image>
+							</images>
+						</configuration>
+						<executions>
+							<execution>
+								<id>build</id>
+								<phase>post-integration-test</phase>
+								<goals>
+									<goal>build</goal>
+									<goal>push</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+
+</project>
