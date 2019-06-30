@@ -13,12 +13,7 @@ spec:
         component: zuul
     spec:
       containers:
-      - env:
-        - name: SPRING_CLOUD_CONFIG_URI
-          value: http://config-server-cluster-ip-service:8888
-        - name: SPRING_EUREKA
-          value: http://eureka-cluster-ip-service:8761/eureka
-        image: dhananjay12/fungible/zuul-server:latest
+        image: dhananjay12/fungible-zuul-server:latest
         name: zuul
         resources:
           requests:

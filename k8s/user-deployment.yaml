@@ -16,13 +16,9 @@ spec:
       - env:
         - name: JAVA_OPTS
           value: -Djava.security.egd=file:/dev/./urandom
-        - name: SPRING_CLOUD_CONFIG_URI
-          value: http://config-server-cluster-ip-service:8888
-        - name: SPRING_EUREKA
-          value: http://eureka-cluster-ip-service:8761/eureka
         - name: SPRING_PROFILES_ACTIVE
           value: default
-        image: dhananjay12/fungible/user-service:latest
+        image: dhananjay12/fungible-user-service:latest
         name: user
         resources:
           requests:
