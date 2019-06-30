@@ -11,18 +11,19 @@ spec:
     metadata:
       labels:
         component: contactus
+    spec:
       containers:
-      - env:
-        - name: JAVA_OPTS
-          value: -Djava.security.egd=file:/dev/./urandom
-        - name: SPRING_PROFILES_ACTIVE
-          value: default
-        image: dhananjay12/fungible-contact-us-service:latest
-        name: contactus
-        resources:
-          requests:
-            memory: "256Mi"
-          limits:
-            memory: "512Mi"
-        ports:
-        - containerPort: 8080
+        - env:
+            - name: JAVA_OPTS
+              value: -Djava.security.egd=file:/dev/./urandom
+            - name: SPRING_PROFILES_ACTIVE
+              value: default
+          image: dhananjay12/fungible-contact-us-service:latest
+          name: zuul
+          resources:
+            requests:
+              memory: "256Mi"
+            limits:
+              memory: "512Mi"
+          ports:
+            - containerPort: 8050

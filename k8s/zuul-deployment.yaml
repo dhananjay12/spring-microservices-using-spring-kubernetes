@@ -13,6 +13,11 @@ spec:
         component: zuul
     spec:
       containers:
+      - env:
+        - name: JAVA_OPTS
+          value: -Djava.security.egd=file:/dev/./urandom
+        - name: SPRING_PROFILES_ACTIVE
+          value: default
         image: dhananjay12/fungible-zuul-server:latest
         name: zuul
         resources:
