@@ -26,7 +26,7 @@ spec:
           value: http://eureka-cluster-ip-service:8761/eureka
         - name: SPRING_PROFILES_ACTIVE
           value: default
-        image: dhananjay12/contact-us-service:latest
+        image: dhananjay12/fungible/contact-us-service:latest
         name: contactus
         resources:
           requests:
@@ -35,6 +35,3 @@ spec:
             memory: "512Mi"
         ports:
         - containerPort: 8080
-        volumeMounts:
-            - name: file-storage
-              mountPath: /app/data
