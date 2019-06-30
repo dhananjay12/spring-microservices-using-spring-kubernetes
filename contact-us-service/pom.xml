@@ -82,10 +82,11 @@
 							<images>
 								<image>
 									<alias>${project.artifactId}</alias>
-									<name>dhananjay12/fungible/${project.artifactId}</name>
+									<name>dhananjay12/fungible-${project.artifactId}</name>
 									<build>
 										<tags>
 											<tag>${git.commit.id}</tag>
+											<tag>latest</tag>
 										</tags>
 										<from>java:8-jre-alpine</from>
 										<!--<tags> <tag>${project.version}</tag> </tags> -->
