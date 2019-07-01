@@ -1,16 +1,16 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: zuul
+  name: gateway
 spec:
   replicas: 1
   selector:
     matchLabels:
-      component: zuul
+      component: gateway
   template:
     metadata:
       labels:
-        component: zuul
+        component: gateway
     spec:
       containers:
       - env:
@@ -18,7 +18,7 @@ spec:
           value: -Djava.security.egd=file:/dev/./urandom
         - name: SPRING_PROFILES_ACTIVE
           value: default
-        image: dhananjay12/fungible-zuul-server:latest
+        image: dhananjay12/fungible-gateway:latest
         name: zuul
         resources:
           requests:
