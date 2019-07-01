@@ -19,11 +19,11 @@ spec:
             - name: SPRING_PROFILES_ACTIVE
               value: default
           image: dhananjay12/fungible-contact-us-service:latest
-          name: zuul
+          name: contactus
           resources:
             requests:
               memory: "256Mi"
             limits:
               memory: "512Mi"
           ports:
-            - containerPort: 8050
+            - containerPort: 8080
