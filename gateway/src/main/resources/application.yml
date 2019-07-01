@@ -23,3 +23,11 @@ management:
     web:
       exposure:
         include: '*'
+
+backend:
+  ribbon:
+    eureka:
+      enabled: false
+    client:
+      enabled: true
+    ServerListRefreshInterval: 5000
