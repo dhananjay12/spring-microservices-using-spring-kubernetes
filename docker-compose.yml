@@ -1,16 +1,16 @@
 version: "3"
 services:
-#  config:
-#    image: "dhananjay12/config-server:latest"
-#    ports:
-#      - "8888:8888"
-#  eureka:
-#    image: "dhananjay12/eureka-server:latest"
-#    environment:
-#      - "SPRING_EUREKA=http://eureka:8761/eureka"
-#      - "SPRING_CLOUD_CONFIG_URI=http://config:8888"
-#    ports:
-#      - "8761:8761"
+  config:
+    image: "dhananjay12/config-server:latest"
+    ports:
+      - "8888:8888"
+  eureka:
+    image: "dhananjay12/eureka-server:latest"
+    environment:
+      - "SPRING_EUREKA=http://eureka:8761/eureka"
+      - "SPRING_CLOUD_CONFIG_URI=http://config:8888"
+    ports:
+      - "8761:8761"
   gateway:
     image: "dhananjay12/fungible-gateway:latest"
     environment:

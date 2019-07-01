@@ -2,16 +2,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
-	<artifactId>user-service</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
-	<name>user-service</name>
-	<packaging>jar</packaging>
-	<description>Demo project for Spring Cloud cloud user-service</description>
 	
+	<artifactId>eureka-server</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>eureka-server</name>
+	<packaging>jar</packaging>
+	<description>Demo project for Spring Cloud cloud eureka</description>
+
 	<parent>
 		<groupId>com.mynotes.k8s</groupId>
-		<artifactId>spring-microservice</artifactId>
+		<artifactId>spring-microservice-fungible</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath /> 
 	</parent>
@@ -19,15 +19,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-kubernetes</artifactId>
-		</dependency>
-		<!--<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-		</dependency>-->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -36,15 +28,6 @@
 		<dependency>
 			<groupId>org.springframework.retry</groupId>
 			<artifactId>spring-retry</artifactId>
-		</dependency>
-		<!--
-			We need that(actuator) so that it can be used in readiness probes.
-			Readiness checks are needed by arquillian, so that it
-			knows when to run the actual test.
-		-->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 	</dependencies>
 
@@ -56,6 +39,7 @@
 			</plugin>
 		</plugins>
 	</build>
+
 	<profiles>
 		<profile>
 			<activation>
@@ -81,7 +65,7 @@
 							<images>
 								<image>
 									<alias>${project.artifactId}</alias>
-									<name>dhananjay12/fungible-${project.artifactId}</name>
+									<name>dhananjay12/${project.artifactId}</name>
 									<build>
 										<tags>
 											<tag>${git.commit.id}</tag>
