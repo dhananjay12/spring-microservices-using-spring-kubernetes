@@ -13,10 +13,13 @@ spring:
         locator:
           enabled: true
           url-expression: "'http://'+serviceId"
-        x-forwarded:
-          prefixEnabled: true
-        kubernetes:
-          reload:
-            enabled: true
-            mode: polling
-            period: 5000
+
+logging:
+  level:
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.cloud.loadbalancer: TRACE
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
