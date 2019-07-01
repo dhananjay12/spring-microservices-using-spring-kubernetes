@@ -11,5 +11,5 @@ spec:
         paths:
           - path: /
             backend:
-              serviceName: zuul-cluster-ip-service
+              serviceName: gateway-cluster-ip-service
               servicePort: 8050

@@ -5,7 +5,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    component: zuul
+    component: gateway
   ports:
   - port: 8050
     targetPort: 8050
