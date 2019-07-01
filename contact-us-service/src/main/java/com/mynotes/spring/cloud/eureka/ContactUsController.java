@@ -33,7 +33,7 @@ public class ContactUsController {
 
     RestTemplate rest = new RestTemplate();
 
-    @RequestMapping(value = "/getMailingAddress", method = RequestMethod.GET)
+    @RequestMapping(value = "/ ", method = RequestMethod.GET)
     @ResponseBody
     public String getContactUsDetails() {
         List<ServiceInstance> serviceList = client.getInstances("user-service");
