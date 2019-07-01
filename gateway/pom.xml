@@ -9,7 +9,7 @@
 	<description>Demo project for Spring Boot</description>
 	<parent>
 		<groupId>com.mynotes.k8s</groupId>
-		<artifactId>spring-microservice</artifactId>
+		<artifactId>spring-microservice-fungible</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath />
 	</parent>
