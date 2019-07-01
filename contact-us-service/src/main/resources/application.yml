@@ -5,3 +5,7 @@ server:
 #  client:
 #    serviceUrl:
 #      defaultZone: ${SPRING_EUREKA:http://localhost:8761/eureka/}
+
+management.endpoint.health.enabled=true
+  management.endpoint.info.enabled=true
+  management.endpoint.restart.enabled=true
