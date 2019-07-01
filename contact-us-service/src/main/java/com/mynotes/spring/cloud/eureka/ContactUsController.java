@@ -28,7 +28,7 @@ public class ContactUsController {
     @Autowired
     DiscoveryClient client;
 
-    @Value("${data.file.path}:/app")
+    //@Value("${data.file.path}:app")
     private String filePath;
 
     RestTemplate rest = new RestTemplate();
