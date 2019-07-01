@@ -23,7 +23,7 @@ before_deploy:
   - gcloud auth activate-service-account --key-file service-account.json
   - gcloud config set project spring-microservices-fungible
   - gcloud config set compute/zone us-central1-a
-  - gcloud container clusters get-credentials spring-k8s-small
+  - gcloud container clusters get-credentials spring-k8s
 
 deploy:
   provider: script
