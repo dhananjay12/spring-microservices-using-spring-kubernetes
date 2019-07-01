@@ -9,6 +9,14 @@ server:
 spring:
   cloud:
     gateway:
-      discovery.locator:
-        enabled: true
-        lowerCaseServiceId: true
+      discovery:
+        locator:
+          enabled: true
+          url-expression: "'http://'+serviceId"
+        x-forwarded:
+          prefixEnabled: true
+        kubernetes:
+          reload:
+            enabled: true
+            mode: polling
+            period: 5000
