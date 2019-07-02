@@ -1,16 +1,16 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: contactus
+  name: contact-us-service
 spec:
   replicas: 1
   selector:
     matchLabels:
-      component: contactus
+      component: contact-us-service
   template:
     metadata:
       labels:
-        component: contactus
+        component: contact-us-service
     spec:
       containers:
         - env:
@@ -19,7 +19,7 @@ spec:
             - name: SPRING_PROFILES_ACTIVE
               value: default
           image: dhananjay12/fungible-contact-us-service:latest
-          name: contactus
+          name: contact-us-service
           resources:
             requests:
               memory: "256Mi"

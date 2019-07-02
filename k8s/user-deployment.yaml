@@ -1,16 +1,16 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: user
+  name: user-service
 spec:
   replicas: 1
   selector:
     matchLabels:
-      component: user
+      component: user-service
   template:
     metadata:
       labels:
-        component: user
+        component: user-service
     spec:
       containers:
       - env:
@@ -19,7 +19,7 @@ spec:
         - name: SPRING_PROFILES_ACTIVE
           value: default
         image: dhananjay12/fungible-user-service:latest
-        name: user
+        name: user-service
         resources:
           requests:
             memory: "256Mi"

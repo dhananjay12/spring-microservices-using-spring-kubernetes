@@ -5,7 +5,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    component: user
+    component: user-service
   ports:
   - port: 8100
     targetPort: 8100

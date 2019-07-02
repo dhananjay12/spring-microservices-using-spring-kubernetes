@@ -13,3 +13,7 @@ spec:
             backend:
               serviceName: gateway-cluster-ip-service
               servicePort: 8050
+          - path: /contact/
+            backend:
+              serviceName: contactus-cluster-ip-service
+              servicePort: 8080

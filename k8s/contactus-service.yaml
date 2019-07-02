@@ -5,7 +5,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    component: contactus
+    component: contact-us-service
   ports:
   - port: 8080
     targetPort: 8080

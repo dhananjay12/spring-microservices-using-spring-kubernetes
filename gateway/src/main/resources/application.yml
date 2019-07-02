@@ -12,13 +12,20 @@ spring:
       discovery:
         locator:
           enabled: true
+          lower-case-service-id: true
           url-expression: "'http://'+serviceId"
 
 logging:
   level:
+    root: DEBUG
+    org.springframework.gateway: TRACE
     org.springframework.cloud.gateway: TRACE
     org.springframework.cloud.loadbalancer: TRACE
+
 management:
+  endpoint:
+    gateway:
+      enabled: true
   endpoints:
     web:
       exposure:

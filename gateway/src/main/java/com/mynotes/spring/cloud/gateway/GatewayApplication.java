@@ -15,16 +15,16 @@ import org.springframework.web.client.RestTemplate;
 @EnableDiscoveryClient
 public class GatewayApplication {
 
-
-	@Autowired
-	private DiscoveryClient discoveryClient;
-
-	@Bean
-	public DiscoveryClientRouteDefinitionLocator discoveryClientRouteLocator(DiscoveryClient discoveryClient,
-																			 DiscoveryLocatorProperties properties) {
-		return new DiscoveryClientRouteDefinitionLocator(discoveryClient,
-				properties);
-	}
+//
+//	@Autowired
+//	private DiscoveryClient discoveryClient;
+//
+//	@Bean
+//	public DiscoveryClientRouteDefinitionLocator discoveryClientRouteLocator(DiscoveryClient discoveryClient,
+//																			 DiscoveryLocatorProperties properties) {
+//		return new DiscoveryClientRouteDefinitionLocator(discoveryClient,
+//				properties);
+//	}
 
 
 	public static void main(String[] args) {
@@ -32,9 +32,9 @@ public class GatewayApplication {
 	}
 
 
-	@LoadBalanced
-	@Bean
-	RestTemplate restTemplate() {
-		return new RestTemplate();
-	}
+//	@LoadBalanced
+//	@Bean
+//	RestTemplate restTemplate() {
+//		return new RestTemplate();
+//	}
 }
