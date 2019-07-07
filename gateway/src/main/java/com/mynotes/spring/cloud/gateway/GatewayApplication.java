@@ -32,6 +32,8 @@ public class GatewayApplication {
 	}
 
 
+
+
 //	@LoadBalanced
 //	@Bean
 //	RestTemplate restTemplate() {

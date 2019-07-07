@@ -12,3 +12,14 @@ management:
     web:
       exposure:
         include: '*'
+
+
+spring:
+  cloud:
+    kubernetes:
+      enabled: true
+      reload:
+        enabled: true
+eureka:
+  client:
+    enabled: false

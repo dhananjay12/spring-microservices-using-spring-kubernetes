@@ -7,13 +7,37 @@ server:
 #      defaultZone: ${SPRING_EUREKA:http://localhost:8761/eureka/}
 
 spring:
+  application:
+    name: gateway
   cloud:
+    kubernetes:
+      enabled: true
+      reload:
+        enabled: true
     gateway:
       discovery:
         locator:
+          lowerCaseServiceId: true
           enabled: true
-          lower-case-service-id: true
-          url-expression: "'http://'+serviceId"
+
+eureka:
+  client:
+    enabled: false
+
+#spring:
+#  cloud:
+#    gateway:
+#      discovery:
+#        locator:
+#          enabled: true
+#          url-expression: "'http://'+serviceId"
+#    kubernetes:
+#      reload:
+#        enabled: true
+#        mode: polling
+#        period: 5000
+#      discovery:
+#        filter: "metadata.labels['s1p']"
 
 logging:
   level:
@@ -22,19 +46,10 @@ logging:
     org.springframework.cloud.gateway: TRACE
     org.springframework.cloud.loadbalancer: TRACE
 
+
 management:
-  endpoint:
-    gateway:
-      enabled: true
   endpoints:
     web:
       exposure:
         include: '*'
 
-backend:
-  ribbon:
-    eureka:
-      enabled: false
-    client:
-      enabled: true
-    ServerListRefreshInterval: 5000

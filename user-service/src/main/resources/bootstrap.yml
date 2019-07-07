@@ -1,7 +1,3 @@
 spring:
   application:
     name: user-service
-  cloud:
-    kubernetes:
-      discovery:
-        enabled: true
