@@ -1,15 +1,19 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
+  labels:
+    run: user-service
   name: user-service
 spec:
   replicas: 1
   selector:
     matchLabels:
+      run: user-service
       component: user-service
   template:
     metadata:
       labels:
+        run: user-service
         component: user-service
     spec:
       containers:
@@ -27,3 +31,4 @@ spec:
             memory: "512Mi"
         ports:
         - containerPort: 8100
+          protocol: TCP

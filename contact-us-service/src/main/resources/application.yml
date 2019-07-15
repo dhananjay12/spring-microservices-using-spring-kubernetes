@@ -1,10 +1,10 @@
 server:
-  port: 8080
-  
-#eureka:
-#  client:
-#    serviceUrl:
-#      defaultZone: ${SPRING_EUREKA:http://localhost:8761/eureka/}
+  port: 8200
+
+    #eureka:
+    #  client:
+    #    serviceUrl:
+    #      defaultZone: ${SPRING_EUREKA:http://localhost:8761/eureka/}
 
 
 management:
@@ -12,3 +12,14 @@ management:
     web:
       exposure:
         include: '*'
+
+
+spring:
+  cloud:
+    kubernetes:
+      enabled: true
+      reload:
+        enabled: true
+eureka:
+  client:
+    enabled: false

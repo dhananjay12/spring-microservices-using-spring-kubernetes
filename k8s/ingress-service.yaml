@@ -11,9 +11,9 @@ spec:
         paths:
           - path: /
             backend:
-              serviceName: gateway-cluster-ip-service
+              serviceName: gateway
               servicePort: 8050
-          - path: /contact/
-            backend:
-              serviceName: contactus-cluster-ip-service
-              servicePort: 8080
+#          - path: /
+#            backend:
+#              serviceName: contact-us-service
+#              servicePort: 8080

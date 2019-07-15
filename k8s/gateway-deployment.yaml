@@ -1,15 +1,19 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
+  labels:
+    run: gateway
   name: gateway
 spec:
   replicas: 1
   selector:
     matchLabels:
+      run: gateway
       component: gateway
   template:
     metadata:
       labels:
+        run: gateway
         component: gateway
     spec:
       containers:
@@ -27,3 +31,4 @@ spec:
             memory: "512Mi"
         ports:
         - containerPort: 8050
+          protocol: TCP
