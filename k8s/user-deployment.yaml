@@ -1,15 +1,19 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
+  labels:
+    run: user-service
   name: user-service
 spec:
   replicas: 1
   selector:
     matchLabels:
+      run: user-service
       component: user-service
   template:
     metadata:
       labels:
+        run: user-service
         component: user-service
     spec:
       containers:
@@ -17,7 +21,7 @@ spec:
         - name: JAVA_OPTS
           value: -Djava.security.egd=file:/dev/./urandom
         - name: SPRING_PROFILES_ACTIVE
-          value: default
+          value: default,k8
         image: dhananjay12/fungible-user-service:latest
         name: user-service
         resources:
@@ -27,3 +31,4 @@ spec:
             memory: "512Mi"
         ports:
         - containerPort: 8100
+          protocol: TCP

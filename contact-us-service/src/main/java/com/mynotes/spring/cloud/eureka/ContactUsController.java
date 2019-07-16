@@ -26,43 +26,22 @@ import org.springframework.web.client.RestTemplate;
 public class ContactUsController {
 
     @Autowired
-    DiscoveryClient client;
+    RestTemplate rest;
 
-    //@Value("${data.file.path}:app")
-    private String filePath;
-
-    RestTemplate rest = new RestTemplate();
-
-    @RequestMapping(value = "/ ", method = RequestMethod.GET)
+    @RequestMapping(value = "/address", method = RequestMethod.GET)
     @ResponseBody
     public String getContactUsDetails() {
-        List<ServiceInstance> serviceList = client.getInstances("user-service");
-        if (serviceList != null && serviceList.size() > 0) {
-            System.out.println("Sevice list===>" + serviceList.size());
-            String result = rest.getForObject(serviceList.get(0)
-                .getUri() + "/users/getPublicMailingAddress", String.class);
-            return "Contact Address ==> " + result;
-        }
-        return "Error: Please Try again later";
+
+       String result = rest.getForObject("http://user-service/users/getPublicMailingAddress", String.class);
+
+       return "Contact Address ==> " + result;
     }
 
-    @RequestMapping(value = "/file", method = RequestMethod.GET)
-    public ResponseEntity<?> file() throws FileNotFoundException, IOException {
-        File csvFile = new File(filePath + File.separator + "data.csv");
-        Pattern pattern = Pattern.compile(",");
-        List<FileData> data = new ArrayList<FileData>();
-        try (BufferedReader in = new BufferedReader(new FileReader(csvFile));) {
-            data = in.lines()
-                .skip(1)
-                .map(line -> {
-                    String[] x = pattern.split(line);
-                    return new FileData(Integer.parseInt(x[0]), x[1]);
-                })
-                .collect(Collectors.toList());
+    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    @ResponseBody
+    public String hello() {
 
-        }
-
-        return ResponseEntity.ok(data);
+        return "Hello from contact us";
     }
 
 }

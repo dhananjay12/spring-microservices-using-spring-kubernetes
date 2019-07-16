@@ -1,15 +1,19 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
+  labels:
+    run: gateway
   name: gateway
 spec:
   replicas: 1
   selector:
     matchLabels:
+      run: gateway
       component: gateway
   template:
     metadata:
       labels:
+        run: gateway
         component: gateway
     spec:
       containers:
@@ -17,7 +21,7 @@ spec:
         - name: JAVA_OPTS
           value: -Djava.security.egd=file:/dev/./urandom
         - name: SPRING_PROFILES_ACTIVE
-          value: default
+          value: default,k8
         image: dhananjay12/fungible-gateway:latest
         name: gateway
         resources:
@@ -27,3 +31,4 @@ spec:
             memory: "512Mi"
         ports:
         - containerPort: 8050
+          protocol: TCP
