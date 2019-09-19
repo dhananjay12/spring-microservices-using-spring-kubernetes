@@ -1,0 +1,18 @@
+server:
+  port: 8040
+  
+
+logging:
+  level:
+    root: DEBUG
+    org.springframework.gateway: TRACE
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.cloud.loadbalancer: TRACE
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
