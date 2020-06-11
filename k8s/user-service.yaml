@@ -11,5 +11,5 @@ spec:
     run: user-service
   ports:
   - port: 8100
-    targetPort: 8100
+    targetPort: 8080
     protocol: TCP

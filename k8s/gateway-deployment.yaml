@@ -30,5 +30,5 @@ spec:
           limits:
             memory: "512Mi"
         ports:
-        - containerPort: 8050
+        - containerPort: 8080
           protocol: TCP

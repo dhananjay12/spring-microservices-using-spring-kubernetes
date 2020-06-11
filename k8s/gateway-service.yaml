@@ -11,5 +11,5 @@ spec:
     run: gateway
   ports:
   - port: 8050
-    targetPort: 8050
+    targetPort: 8080
     protocol: TCP
