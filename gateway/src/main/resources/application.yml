@@ -6,14 +6,6 @@ spring:
           lowerCaseServiceId: true
           enabled: true
 
-logging:
-  level:
-    root: DEBUG
-    org.springframework.gateway: TRACE
-    org.springframework.cloud.gateway: TRACE
-    org.springframework.cloud.loadbalancer: TRACE
-
-
 management:
   endpoints:
     web:
