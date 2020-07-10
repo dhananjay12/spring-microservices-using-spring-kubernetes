@@ -5,29 +5,26 @@ services:
     environment:
       - "SPRING_EUREKA=http://eureka:8761/eureka"
     ports:
-      - "8761:8761"
+      - "8761:8080"
   gateway:
     image: "dhananjay12/fungible-gateway:latest"
     environment:
-      - "JAVA_OPTS=-Djava.security.egd=file:/dev/./urandom"
       - "SPRING_PROFILES_ACTIVE=default,classical"
       - "SPRING_EUREKA=http://eureka:8761/eureka"
     ports:
-      - "8050:8050"
+      - "8080:8080"
   user:
     image: "dhananjay12/fungible-user-service:latest"
     environment:
-      - "JAVA_OPTS=-Djava.security.egd=file:/dev/./urandom"
       - "SPRING_PROFILES_ACTIVE=default,classical"
       - "SPRING_EUREKA=http://eureka:8761/eureka"
     ports:
-      - "8100:8100"
+      - "8100:8080"
   contactus:
     image: "dhananjay12/fungible-contact-us-service:latest"
     environment:
-      - "JAVA_OPTS=-Djava.security.egd=file:/dev/./urandom"
       - "SPRING_PROFILES_ACTIVE=default,classical"
       - "SPRING_EUREKA=http://eureka:8761/eureka"
     ports:
-      - "8200:8200"
+      - "8200:8080"
 
