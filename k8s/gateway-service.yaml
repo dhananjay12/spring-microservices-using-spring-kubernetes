@@ -10,5 +10,5 @@ spec:
     app: gateway
   ports:
     - name: "gateway"
-      port: 7777
+      port: 8080
       targetPort: 8080

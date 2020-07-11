@@ -12,7 +12,7 @@ spec:
           - path: /
             backend:
               serviceName: gateway
-              servicePort: 7777
+              servicePort: 8080
 #          - path: /
 #            backend:
 #              serviceName: contact-us-service
