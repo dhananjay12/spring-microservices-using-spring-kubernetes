@@ -8,7 +8,7 @@
 		{
 			"name": "Gateway routes refresh",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
 				"url": {
 					"raw": "http://localhost:8080/actuator/gateway/refresh",

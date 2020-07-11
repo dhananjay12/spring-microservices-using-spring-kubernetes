@@ -24,6 +24,16 @@ and standard actuator endpoints
 
 and standard actuator endpoints
 
+Spring Cloud Kubernetes requires access to the Kubernetes API in order to be able to retrieve a list of addresses for 
+pods running for a single service. If you use Kubernetes, you should just execute the following command:
+
+```
+kubectl create clusterrolebinding admin --clusterrole=cluster-admin --serviceaccount=default:default
+```
+
+This is only done for testing. In production, it can be something like - 
+https://cloud.spring.io/spring-cloud-kubernetes/reference/html/#service-account
+
 ## Copy data.csv to the volume created
 
 ### Google Cloud

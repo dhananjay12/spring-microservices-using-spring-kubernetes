@@ -20,6 +20,8 @@ spec:
           value: "true"
         - name: SPRING_CLOUD_KUBERNETES_RELOAD_ENABLED
           value: "true"
+        - name: SPRING_AUTOCONFIGURE_EXCLUDE
+          value: "org.springframework.cloud.netflix.eureka.loadbalancer.LoadBalancerEurekaAutoConfiguration"
         image: dhananjay12/fungible-gateway:latest
         imagePullPolicy: Always
         name: gateway

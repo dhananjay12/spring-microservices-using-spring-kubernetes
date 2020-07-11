@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: user-service
+  name: contact-us-service
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: contant-us-service
+      app: contact-us-service
   template:
     metadata:
       labels:
-        app: contant-us-service
+        app: contact-us-service
     spec:
       containers:
       - env:
@@ -20,6 +20,8 @@ spec:
           value: "true"
         - name: SPRING_CLOUD_KUBERNETES_RELOAD_ENABLED
           value: "true"
+        - name: SPRING_AUTOCONFIGURE_EXCLUDE
+          value: "org.springframework.cloud.netflix.eureka.loadbalancer.LoadBalancerEurekaAutoConfiguration"
         image: dhananjay12/fungible-contact-us-service:latest
         imagePullPolicy: Always
         name: contant-us-service
