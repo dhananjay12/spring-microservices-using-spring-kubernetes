@@ -3,29 +3,29 @@ services:
   eureka:
     image: dhananjay12/eureka-server:latest
     environment:
-      - SPRING_EUREKA=http://eureka:8761/eureka
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka:8080/eureka
     ports:
       - 8761:8080
   gateway:
     image: dhananjay12/fungible-gateway:latest
     environment:
-      - SPRING_PROFILES_ACTIVE=default,classical
+      - SPRING_PROFILES_ACTIVE=classical
       - logging.level.org.springframework.cloud=TRACE
-      - SPRING_EUREKA=http://eureka:8761/eureka
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka:8080/eureka
     ports:
       - 8080:8080
   user:
     image: dhananjay12/fungible-user-service:latest
     environment:
-      - SPRING_PROFILES_ACTIVE=default,classical
-      - SPRING_EUREKA=http://eureka:8761/eureka
+      - SPRING_PROFILES_ACTIVE=classical
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka:8080/eureka
     ports:
       - 8100:8080
   contactus:
     image: dhananjay12/fungible-contact-us-service:latest
     environment:
-      - SPRING_PROFILES_ACTIVE=default,classical
-      - SPRING_EUREKA=http://eureka:8761/eureka
+      - SPRING_PROFILES_ACTIVE=classical
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka:8080/eureka
     ports:
       - 8200:8080
 
