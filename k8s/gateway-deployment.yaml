@@ -21,6 +21,7 @@ spec:
         - name: SPRING_CLOUD_KUBERNETES_RELOAD_ENABLED
           value: "true"
         image: dhananjay12/fungible-gateway:latest
+        imagePullPolicy: Always
         name: gateway
         resources:
           requests:
