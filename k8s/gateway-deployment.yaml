@@ -1,27 +1,25 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    run: gateway
   name: gateway
 spec:
   replicas: 1
   selector:
     matchLabels:
-      run: gateway
-      component: gateway
+      app: gateway
   template:
     metadata:
       labels:
-        run: gateway
-        component: gateway
+        app: gateway
     spec:
       containers:
       - env:
-        - name: JAVA_OPTS
-          value: -Djava.security.egd=file:/dev/./urandom
-        - name: SPRING_PROFILES_ACTIVE
-          value: default,k8
+        - name: EUREKA_CLIENT_ENABLED
+          value: "false"
+        - name: SPRING_CLOUD_KUBERNETES_ENABLED
+          value: "true"
+        - name: SPRING_CLOUD_KUBERNETES_RELOAD_ENABLED
+          value: "true"
         image: dhananjay12/fungible-gateway:latest
         name: gateway
         resources:
@@ -30,5 +28,4 @@ spec:
           limits:
             memory: "512Mi"
         ports:
-        - containerPort: 8080
-          protocol: TCP
+          - containerPort: 8080

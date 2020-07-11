@@ -2,14 +2,13 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    run: gateway
+    name: gateway
   name: gateway
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
-    component: gateway
-    run: gateway
+    app: gateway
   ports:
-  - port: 8050
-    targetPort: 8080
-    protocol: TCP
+    - name: "gateway"
+      port: 7777
+      targetPort: 8080

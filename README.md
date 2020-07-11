@@ -8,6 +8,22 @@ mvn clean install -Ddocker
 
 mvn clean install -Ddocker -Ddocker.skip.push
 
+## Endpoints
+
+#### Gateway
+Standard actuator endpoints
+
+#### User service
+* `/user/public-address`
+
+and standard actuator endpoints
+
+#### Contant Us service
+* `/contact-us/address`
+* `/contact-us/hello`
+
+and standard actuator endpoints
+
 ## Copy data.csv to the volume created
 
 ### Google Cloud
@@ -18,7 +34,7 @@ Then set the cluster using following command:
 gcloud container clusters get-credentials spring-k8s
 ```
 
-Then copy the file using follwoing command 
+Then copy the file using following command 
 
 ```
 kubectl cp data.csv <namespace>/<pod-name>:/app/data

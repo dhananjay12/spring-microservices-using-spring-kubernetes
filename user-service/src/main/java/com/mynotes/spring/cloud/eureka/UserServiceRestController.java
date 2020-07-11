@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/user")
 public class UserServiceRestController {
 	
-	@RequestMapping(value = "/getPublicMailingAddress", method = RequestMethod.GET)
+	@RequestMapping(value = "/public-address", method = RequestMethod.GET)
 	@ResponseBody
 	public String getContact() {
 		return "Public mail Address";
