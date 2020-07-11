@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "e5aa2eb5-f5de-404a-9804-6c0dd6475322",
+		"name": "Github-Spring-cloud-k8-example",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Gateway routes refresh",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/actuator/gateway/refresh",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"actuator",
+						"gateway",
+						"refresh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Gateway rotues",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/actuator/gateway/routes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"actuator",
+						"gateway",
+						"routes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contact service hello",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/contact-us-service/contact-us/hello",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contact-us-service",
+						"contact-us",
+						"hello"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contact service addess",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/contact-us-service/contact-us/address",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contact-us-service",
+						"contact-us",
+						"address"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User service addess",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user-service/user/public-address",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user-service",
+						"user",
+						"public-address"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
