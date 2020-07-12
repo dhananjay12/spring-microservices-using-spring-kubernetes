@@ -6,7 +6,7 @@ services:
 env:
   global:
     - SHA=$(git rev-parse HEAD)
-    - BUILD_BRANCH=$(git symbolic-ref --short HEAD)
+    - BUILD_BRANCH=$TRAVIS_BRANCH
     - CLOUDSDK_CORE_DISABLE_PROMPTS=1
 
 before_install:
