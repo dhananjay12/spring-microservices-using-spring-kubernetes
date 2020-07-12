@@ -94,7 +94,7 @@
 									<name>dhananjay12/fungible-${project.artifactId}</name>
 									<build>
 										<tags>
-											<tag>${git.commit.id}</tag>
+											<tag>${BUILD_BRANCH}</tag>
 											<tag>latest</tag>
 										</tags>
 										<from>openjdk:11.0.5-jre-slim</from>
