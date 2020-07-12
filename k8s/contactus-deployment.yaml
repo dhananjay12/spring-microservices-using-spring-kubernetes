@@ -22,7 +22,7 @@ spec:
           value: "true"
         - name: SPRING_AUTOCONFIGURE_EXCLUDE
           value: "org.springframework.cloud.netflix.eureka.loadbalancer.LoadBalancerEurekaAutoConfiguration"
-        image: dhananjay12/fungible-contact-us-service:latest
+        image: dhananjay12/fungible-contact-us-service:master
         imagePullPolicy: Always
         name: contant-us-service
         resources:

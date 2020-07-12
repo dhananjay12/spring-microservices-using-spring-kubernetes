@@ -1,13 +1,13 @@
 version: "3.7"
 services:
   eureka:
-    image: dhananjay12/eureka-server:latest
+    image: dhananjay12/eureka-server:master
     environment:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka:8080/eureka
     ports:
       - 8761:8080
   gateway:
-    image: dhananjay12/fungible-gateway:latest
+    image: dhananjay12/fungible-gateway:master
     environment:
       - SPRING_PROFILES_ACTIVE=classical
       - logging.level.org.springframework.cloud=TRACE
@@ -15,14 +15,14 @@ services:
     ports:
       - 8080:8080
   user:
-    image: dhananjay12/fungible-user-service:latest
+    image: dhananjay12/fungible-user-service:master
     environment:
       - SPRING_PROFILES_ACTIVE=classical
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka:8080/eureka
     ports:
       - 8100:8080
   contactus:
-    image: dhananjay12/fungible-contact-us-service:latest
+    image: dhananjay12/fungible-contact-us-service:master
     environment:
       - SPRING_PROFILES_ACTIVE=classical
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka:8080/eureka
