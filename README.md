@@ -1,6 +1,6 @@
 # Spring Microservice K8s [![Build Status](https://travis-ci.org/dhananjay12/spring-microservices-using-spring-kubernetes.svg?branch=master)](https://travis-ci.org/dhananjay12/spring-microservices-using-spring-kubernetes)
 
-This sample application is to test spring apps service discovery with [spring-cloud-kubernetes](https://github.com/spring-cloud/spring-cloud-kubernetes) in K8 env. For other you can use Eureka(which is actually the default).
+This sample application is to test spring apps service discovery with [spring-cloud-kubernetes](https://github.com/spring-cloud/spring-cloud-kubernetes) in K8 env. For other envs you can use Eureka(which is actually the default).
 
 ## Build and Dockerize
 
