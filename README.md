@@ -1,5 +1,7 @@
 # Spring Microservice K8s [![Build Status](https://travis-ci.org/dhananjay12/spring-microservices-using-spring-kubernetes.svg?branch=master)](https://travis-ci.org/dhananjay12/spring-microservices-using-spring-kubernetes)
 
+This sample application is to test spring apps service discovery with [spring-cloud-kubernetes](https://github.com/spring-cloud/spring-cloud-kubernetes) in K8 env. For other you can use Eureka(which is actually the default).
+
 ## Build and Dockerize
 
 mvn clean install -Ddocker
@@ -33,6 +35,19 @@ kubectl create clusterrolebinding admin --clusterrole=cluster-admin --serviceacc
 
 This is only done for testing. In production, it can be something like - 
 https://cloud.spring.io/spring-cloud-kubernetes/reference/html/#service-account
+
+## Properties required for K8
+The properties required to switch from Eureka to K8s are:
+```
+        - name: EUREKA_CLIENT_ENABLED
+          value: "false"
+        - name: SPRING_CLOUD_KUBERNETES_ENABLED
+          value: "true"
+        - name: SPRING_CLOUD_KUBERNETES_RELOAD_ENABLED
+          value: "true"
+        - name: SPRING_AUTOCONFIGURE_EXCLUDE
+          value: "org.springframework.cloud.netflix.eureka.loadbalancer.LoadBalancerEurekaAutoConfiguration"
+```
 
 ## Copy data.csv to the volume created
 
