@@ -24,7 +24,7 @@ spec:
           value: "org.springframework.cloud.netflix.eureka.loadbalancer.LoadBalancerEurekaAutoConfiguration"
         - name: "logging.level.org.springframework.cloud.kubernetes"
           value: "TRACE"
-        image: dhananjay12/fungible-gateway:master
+        image: dhananjay12/fungible-gateway:new-version-security
         imagePullPolicy: Always
         name: gateway
         resources:
